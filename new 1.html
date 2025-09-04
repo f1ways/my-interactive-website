@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Interactive Website</title>
+    <title>Interactive GitHub Pages App</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -10,35 +10,42 @@
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            background-color: #f0f0f0;
         }
         button {
             margin: 10px;
             padding: 15px 30px;
             font-size: 18px;
+            cursor: pointer;
+        }
+        h1 {
+            color: #333;
         }
     </style>
 </head>
 <body>
 
-<h1>🔥 My Interactive Website</h1>
+<h1>🔥 Interactive Website</h1>
 
 <button id="helloBtn">Say Hello</button>
 <button id="rapidBtn">Rapid-fire Spacebar</button>
 
+<p>Press the Spacebar key to see the key press detected.</p>
+
 <script>
-    // Hello Button
+    // Say Hello button
     document.getElementById('helloBtn').addEventListener('click', () => {
-        alert('Hello World!');
+        alert('Hello! This website works on GitHub Pages.');
     });
 
-    // Rapid-fire Spacebar
+    // Rapid-fire button
     let rapid = false;
     document.getElementById('rapidBtn').addEventListener('mousedown', () => {
         rapid = true;
         function spamSpace() {
             if(rapid) {
-                console.log('Space pressed'); // Replace with actual action
-                setTimeout(spamSpace, 30); // ~33 actions per second
+                console.log('Space action triggered'); // You can replace this with any action
+                setTimeout(spamSpace, 50); // ~20 actions per second
             }
         }
         spamSpace();
@@ -46,14 +53,18 @@
     document.getElementById('rapidBtn').addEventListener('mouseup', () => {
         rapid = false;
     });
+    document.getElementById('rapidBtn').addEventListener('mouseleave', () => {
+        rapid = false;
+    });
 
-    // Optional: Listen for actual Space key
+    // Keyboard hotkey listener
     document.addEventListener('keydown', (e) => {
         if(e.code === 'Space') {
-            console.log('Space key pressed!');
+            console.log('Spacebar pressed!');
         }
     });
 </script>
 
 </body>
 </html>
+
