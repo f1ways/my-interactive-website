@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Interactive Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        button {
+            margin: 10px;
+            padding: 15px 30px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🔥 My Interactive Website</h1>
+
+<button id="helloBtn">Say Hello</button>
+<button id="rapidBtn">Rapid-fire Spacebar</button>
+
+<script>
+    // Hello Button
+    document.getElementById('helloBtn').addEventListener('click', () => {
+        alert('Hello World!');
+    });
+
+    // Rapid-fire Spacebar
+    let rapid = false;
+    document.getElementById('rapidBtn').addEventListener('mousedown', () => {
+        rapid = true;
+        function spamSpace() {
+            if(rapid) {
+                console.log('Space pressed'); // Replace with actual action
+                setTimeout(spamSpace, 30); // ~33 actions per second
+            }
+        }
+        spamSpace();
+    });
+    document.getElementById('rapidBtn').addEventListener('mouseup', () => {
+        rapid = false;
+    });
+
+    // Optional: Listen for actual Space key
+    document.addEventListener('keydown', (e) => {
+        if(e.code === 'Space') {
+            console.log('Space key pressed!');
+        }
+    });
+</script>
+
+</body>
+</html>
